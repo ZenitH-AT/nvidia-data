@@ -22,7 +22,9 @@ Q. What are the JSON files used for?
 >
 > Previously, the script needed to query the NVIDIA Download API multiple times, iterating through and filtering every bit of data. Measures to speed up this process (i.e. limiting queries to desktop/mobile GPU and GeForce cards only) mostly just made the code more complicated.
 >
-> The nvidia-update.ps1 script uses the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php), so GPU data created by the get-nvidia-data.py script is structured in key value pairs:
+> The nvidia-update.ps1 script passes the data to the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php). An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
+>
+> GPU data created by the get-nvidia-data.py script is structured in key value pairs for performance. OS data is structured more traditionally, since both the code and part of the name must be compared.
 >
 > * GPU data:
 >	* GPU name and `pfid`
@@ -45,9 +47,7 @@ Q. What are the JSON files used for?
 >	]
 > ```
 >
-> An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
->
-> Additionally, since GPU data keys must match exactly with the computer's GPU name data for performance, all GPU names are run through a ```clean_gpu_name()``` function:
+> Additionally, since GPU data keys must match exactly with the computer's GPU name, all GPU names are run through a ```clean_gpu_name()``` function:
 >
 > Old name | New name
 > --- | --- | ---
