@@ -22,16 +22,36 @@ Q. What are the JSON files used for?
 >
 > Previously, the script needed to query the NVIDIA Download API multiple times, iterating through and filtering every bit of data. Measures to speed up this process (i.e. limiting queries to desktop/mobile GPU and GeForce cards only) mostly just made the code more complicated.
 >
-> The nvidia-update.ps1 script uses the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php), so data created by the get-nvidia-data.py script is structured in key value pairs:
+> The nvidia-update.ps1 script uses the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php), so GPU data created by the get-nvidia-data.py script is structured in key value pairs:
 >
 > * GPU data:
-> 	* **GPU name**: **pfid**
+>	* GPU name and `pfid`
+>
+> ```json
+	{
+		...
+		"<GPU name>": "pfid",
+		...
+	}
+```
 > * OS data:
-> 	* **code**: **osID**
+>	* OS code, OS name and `osID`
+>
+> ```json
+	[
+		...
+		{
+			"code": "10.0",
+			"name": "Windows 10 64-bit",
+			"id": "57"
+		},
+		...
+	]
+```
 >
 > An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
 >
-> Additionally, since all keys must match exactly with the computer's GPU and OS data for performance, all GPU names are run through a ```clean_gpu_name()``` function:
+> Additionally, since GPU data keys must match exactly with the computer's GPU name data for performance, all GPU names are run through a ```clean_gpu_name()``` function:
 >
 > Old name | New name
 > --- | --- | ---
