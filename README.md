@@ -39,7 +39,7 @@ Q. What are the JSON files used for?
 >
 > ```json
 > 	[
->		...
+>		\...
 >		{
 >			"code": "10.0",
 >			"name": "Windows 10 64-bit",
