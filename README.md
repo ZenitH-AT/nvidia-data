@@ -49,13 +49,13 @@ Q. What are the JSON files used for?
 >
 > Additionally, since GPU data keys must match exactly with the computer's GPU name, all GPU names are run through a ```clean_gpu_name()``` function:
 >
-Old name | New name
---- | --- | ---
-GeForce 7050 / NVIDIA nForce 610i | GeForce 7050
-nForce 610i/GeForce 7050 | nForce 610i
-Quadro M6000 24GB | Quadro M6000
-GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
-NVIDIA TITAN RTX | TITAN RTX
+> | Old name | New name |
+> | --- | --- | --- |
+> | GeForce 7050 / NVIDIA nForce 610i | GeForce 7050 |
+> | nForce 610i/GeForce 7050 | nForce 610i |
+> | Quadro M6000 24GB | Quadro M6000 |
+> | GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti |
+> | NVIDIA TITAN RTX | TITAN RTX |
 
 ## Planned changes
 
