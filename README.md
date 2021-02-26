@@ -28,11 +28,11 @@ Q. What are the JSON files used for?
 > 	* **GPU name**: **pfid**
 > * OS data:
 > 	* **code**: **osID**
-
+>
 > An example of how this data is used can be found on the [ZenitH-AT/nvidia-update](https://github.com/ZenitH-AT/nvidia-update) repository.
-
+>
 > Additionally, since all keys must match exactly with the computer's GPU and OS data for performance, all GPU names are run through a ```clean_gpu_name()``` function:
-
+>
 > Old name | New name
 > --- | --- | ---
 > GeForce 7050 / NVIDIA nForce 610i | GeForce 7050
