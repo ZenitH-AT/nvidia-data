@@ -6,7 +6,7 @@ Writes the latest product family (GPU) and operating system data from the NVIDIA
 
 * Product family (GPU) data ([gpu-data.json](https://github.com/ZenitH-AT/nvidia-data/raw/master/gpu-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3``` change.
 	* Updates to this file will always occur before any new GPUs are released.
-* Operating system data [os-data.json](https://github.com/ZenitH-AT/nvidia-data/raw/master/os-data.json) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4``` change.
+* Operating system data ([os-data.json](https://github.com/ZenitH-AT/nvidia-data/raw/master/os-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4``` change.
 
 ## FAQ
 
@@ -29,7 +29,7 @@ Q. What are the JSON files used for?
 > * OS data:
 > 	* **code**: **osID**
 >
-> An example of how this data is used can be found on the [ZenitH-AT/nvidia-update](https://github.com/ZenitH-AT/nvidia-update) repository.
+> An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
 >
 > Additionally, since all keys must match exactly with the computer's GPU and OS data for performance, all GPU names are run through a ```clean_gpu_name()``` function:
 >
