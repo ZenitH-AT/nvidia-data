@@ -4,9 +4,9 @@ Writes the latest product family (GPU) and operating system data from the NVIDIA
 
 ## Notes
 
-* Product family (GPU) data ([gpu-data.json](https://github.com/ZenitH-AT/nvidia-data/raw/master/gpu-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3``` change.
+* Product family (GPU) data ([gpu-data.json](https://raw.githubusercontent.com/ZenitH-AT/nvidia-data/main/gpu-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3``` change.
 	* Updates to this file will always occur before any new GPUs are released.
-* Operating system data ([os-data.json](https://github.com/ZenitH-AT/nvidia-data/raw/master/os-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4``` change.
+* Operating system data ([os-data.json](https://raw.githubusercontent.com/ZenitH-AT/nvidia-data/main/os-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4``` change.
 
 ## FAQ
 
