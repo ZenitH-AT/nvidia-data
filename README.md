@@ -29,9 +29,7 @@ Q. What are the JSON files used for?
 >
 > ```json
 > 	{
->		...
->		"<GPU name>": "pfid",
->		...
+>		"GeForce RTX 3070": "933",
 >	}
 > ```
 > * OS data:
@@ -39,13 +37,11 @@ Q. What are the JSON files used for?
 >
 > ```json
 > 	[
->		\...
 >		{
 >			"code": "10.0",
 >			"name": "Windows 10 64-bit",
 >			"id": "57"
 >		},
->		...
 >	]
 > ```
 >
