@@ -13,8 +13,8 @@ def clean_gpu_name(gpu_name):
 
     return gpu_name
 
-def dict_to_json(dict, file_name):
-    json_object = json.dumps(dict, indent=4)
+def write_json(data, file_name):
+    json_object = json.dumps(data, indent=4)
 
     with open(file_name, "w+") as outfile:
         outfile.write(json_object)
@@ -24,15 +24,17 @@ gpu_xml = requests.get("https://www.nvidia.com/Download/API/lookupValueSearch.as
 
 gpu_lookup_values = xmltodict.parse(gpu_xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
 
-gpu_dict = { clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"] for gpu_lookup_value in gpu_lookup_values }
+gpu_dict = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"] for gpu_lookup_value in gpu_lookup_values}
 
-dict_to_json(gpu_dict, "gpu-data.json")
+write_json(gpu_dict, "gpu-data.json")
 
 ## Parse OSes { code: osID, ... }
 os_xml = requests.get("https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4").content
 
 os_lookup_values = xmltodict.parse(os_xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
 
-os_dict = { os_lookup_value["@Code"]: os_lookup_value["Value"] for os_lookup_value in os_lookup_values }
+os_dict = {os_lookup_value["@Code"]: os_lookup_value["Value"] for os_lookup_value in os_lookup_values}
 
-dict_to_json(os_dict, "os-data.json")
+os_arr = [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in os_lookup_values]
+
+write_json(os_arr, "os-data.json")
