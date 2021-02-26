@@ -28,26 +28,26 @@ Q. What are the JSON files used for?
 >	* GPU name and `pfid`
 >
 > ```json
-	{
-		...
-		"<GPU name>": "pfid",
-		...
-	}
-```
+> 	{
+>		...
+>		"<GPU name>": "pfid",
+>		...
+>	}
+> ```
 > * OS data:
 >	* OS code, OS name and `osID`
 >
 > ```json
-	[
-		...
-		{
-			"code": "10.0",
-			"name": "Windows 10 64-bit",
-			"id": "57"
-		},
-		...
-	]
-```
+> 	[
+>		...
+>		{
+>			"code": "10.0",
+>			"name": "Windows 10 64-bit",
+>			"id": "57"
+>		},
+>		...
+>	]
+> ```
 >
 > An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
 >
