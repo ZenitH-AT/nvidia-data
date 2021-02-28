@@ -59,4 +59,4 @@ Q. What are the JSON files used for?
 
 ## Planned changes
 
-The script should be updated to account for not all alternative names being repeated in other entries (e.g. nForce 630i is not retrieved by this script).
+* The script should be updated to account for not all alternative names being repeated in other entries (e.g. nForce 630i is not retrieved by this script).
