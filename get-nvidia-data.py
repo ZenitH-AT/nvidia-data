@@ -19,7 +19,7 @@ def write_json(data, file_name):
     with open(file_name, "w+") as outfile:
         outfile.write(json_object)
 
-## Parse GPUs { name: pfid, ... }
+## Parse GPUs
 gpu_xml = requests.get("https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3").content
 
 gpu_lookup_values = xmltodict.parse(gpu_xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
@@ -28,7 +28,7 @@ gpu_dict = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"] 
 
 write_json(gpu_dict, "gpu-data.json")
 
-## Parse OSes { code: osID, ... }
+## Parse OSes
 os_xml = requests.get("https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4").content
 
 os_lookup_values = xmltodict.parse(os_xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
