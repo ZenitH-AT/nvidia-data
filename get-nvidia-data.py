@@ -3,6 +3,13 @@ import os, sys, re, json, requests, xmltodict
 os.chdir(sys.path[0])
 
 ## Functions
+def get_lookup_values(type_id):
+    xml = requests.get(f"https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID={type_id}").content
+
+    lookup_values = xmltodict.parse(xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
+
+    return lookup_values
+
 def clean_gpu_name(gpu_name):
     # Limit to first name if multiple names specified; most alternative names are repeated in other entries
     # (e.g. "GeForce 7050 / NVIDIA nForce 610i" is repeated as "nForce 610i/GeForce 7050")
@@ -20,18 +27,27 @@ def write_json(data, file_name):
         outfile.write(json_object)
 
 ## Parse GPUs
-gpu_xml = requests.get("https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3").content
+series_lookup_values = get_lookup_values(2)
 
-gpu_lookup_values = xmltodict.parse(gpu_xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
+# Account for same GPU name in both a desktop and notebook series (e.g. GeForce GTX 10 Series GPUs, such as the GeForce GTX 1050 Ti)
+notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if "(Notebooks)" in series_lookup_value["Name"]]
 
-gpu_dict = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"] for gpu_lookup_value in gpu_lookup_values}
+gpu_lookup_values = get_lookup_values(3)
+
+gpu_dict = {"desktop": {}, "notebook": {}}
+
+for gpu_lookup_value in gpu_lookup_values:
+    gpu_pair = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"]}
+
+    if gpu_lookup_value["@ParentID"] in notebook_series_values:
+        gpu_dict["notebook"].update(gpu_pair)
+    else:
+        gpu_dict["desktop"].update(gpu_pair)
 
 write_json(gpu_dict, "gpu-data.json")
 
 ## Parse OSes
-os_xml = requests.get("https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4").content
-
-os_lookup_values = xmltodict.parse(os_xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
+os_lookup_values = get_lookup_values(4)
 
 os_dict = {os_lookup_value["@Code"]: os_lookup_value["Value"] for os_lookup_value in os_lookup_values}
 
