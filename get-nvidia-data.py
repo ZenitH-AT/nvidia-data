@@ -29,7 +29,7 @@ def write_json(data, file_name):
 ## Parse GPUs
 series_lookup_values = get_lookup_values(2)
 
-# Account for same GPU name in both a desktop and notebook series (e.g. GeForce GTX 10 Series GPUs, such as the GeForce GTX 1050 Ti)
+# Account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti)
 notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if "(Notebooks)" in series_lookup_value["Name"]]
 
 gpu_lookup_values = get_lookup_values(3)
