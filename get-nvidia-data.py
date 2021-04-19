@@ -1,8 +1,11 @@
-import os, sys, re, json, requests, xmltodict
+import os, sys, requests, xmltodict, re, json
 
 os.chdir(sys.path[0])
 
-## Functions
+## Regex variables and functions
+CARD_VARIANT_REGEX = r".*(?= [0-9]+GB)|.*(?= \([A-Z]+\))|.*"
+NOTEBOOK_SERIES_REGEX = r".*((Notebooks)|Quadro Blade).*"
+
 def get_lookup_values(type_id):
     xml = requests.get(f"https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID={type_id}").content
 
@@ -16,7 +19,7 @@ def clean_gpu_name(gpu_name):
     gpu_name = str(gpu_name).replace("NVIDIA", "").split("/")[0].strip()
 
     # Handle card variants (e.g. 1060 6GB, 760Ti (OEM))
-    gpu_name = re.match(r"^(.*(?= [0-9]+GB)|.*(?= \([A-Z]+\))|.*)", gpu_name)[0]
+    gpu_name = re.match(CARD_VARIANT_REGEX, gpu_name)[0]
 
     return gpu_name
 
@@ -30,7 +33,7 @@ def write_json(data, file_name):
 series_lookup_values = get_lookup_values(2)
 
 # Account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti)
-notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if "(Notebooks)" in series_lookup_value["Name"]]
+notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if re.match(NOTEBOOK_SERIES_REGEX, series_lookup_value["Name"])]
 
 gpu_lookup_values = get_lookup_values(3)
 
@@ -48,8 +51,6 @@ write_json(gpu_dict, "gpu-data.json")
 
 ## Parse OSes
 os_lookup_values = get_lookup_values(4)
-
-os_dict = {os_lookup_value["@Code"]: os_lookup_value["Value"] for os_lookup_value in os_lookup_values}
 
 os_arr = [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in os_lookup_values]
 
