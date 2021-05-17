@@ -776,6 +776,8 @@
         "GeForce RTX 3080 Laptop GPU": "938",
         "GeForce RTX 3070 Laptop GPU": "939",
         "GeForce RTX 3060 Laptop GPU": "940",
+        "GeForce RTX 3050 Ti Laptop GPU": "962",
+        "GeForce RTX 3050 Laptop GPU": "963",
         "RTX A5000 Laptop GPU": "958",
         "RTX A4000 Laptop GPU": "959",
         "RTX A3000 Laptop GPU": "956",
