@@ -95,6 +95,11 @@
         "id": "119"
     },
     {
+        "code": "10.0-NT",
+        "name": "Windows Server 2022",
+        "id": "134"
+    },
+    {
         "code": "5.2",
         "name": "Windows Server 2003",
         "id": "15"
