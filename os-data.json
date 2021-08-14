@@ -1,0 +1,447 @@
+[
+	{
+		"code": "10.0",
+		"name": "Windows 10 32-bit",
+		"id": "56"
+	},
+	{
+		"code": "10.0",
+		"name": "Windows 10 64-bit",
+		"id": "57"
+	},
+	{
+		"code": "10.0",
+		"name": "Windows 11",
+		"id": "135"
+	},
+	{
+		"code": "6.1",
+		"name": "Windows 7 32-bit",
+		"id": "18"
+	},
+	{
+		"code": "6.1",
+		"name": "Windows 7 64-bit",
+		"id": "19"
+	},
+	{
+		"code": "6.3",
+		"name": "Windows 8.1 32-bit",
+		"id": "40"
+	},
+	{
+		"code": "6.3",
+		"name": "Windows 8.1 64-bit",
+		"id": "41"
+	},
+	{
+		"code": "6.2",
+		"name": "Windows 8 32-bit",
+		"id": "27"
+	},
+	{
+		"code": "6.2",
+		"name": "Windows 8 64-bit",
+		"id": "28"
+	},
+	{
+		"code": "6.0",
+		"name": "Windows Vista 32-bit",
+		"id": "9"
+	},
+	{
+		"code": "6.0",
+		"name": "Windows Vista 64-bit",
+		"id": "10"
+	},
+	{
+		"code": "5.1",
+		"name": "Windows XP",
+		"id": "6"
+	},
+	{
+		"code": "5.2",
+		"name": "Windows XP 64-bit",
+		"id": "7"
+	},
+	{
+		"code": "nt-6.1",
+		"name": "Windows Server 2008",
+		"id": "16"
+	},
+	{
+		"code": "6.1-64",
+		"name": "Windows Server 2008 x64",
+		"id": "17"
+	},
+	{
+		"code": "6.1-64-R2",
+		"name": "Windows Server 2008 R2 64",
+		"id": "21"
+	},
+	{
+		"code": "6.2-1",
+		"name": "Windows Server 2012",
+		"id": "32"
+	},
+	{
+		"code": "6.2-R2",
+		"name": "Windows Server 2012 R2 64",
+		"id": "44"
+	},
+	{
+		"code": "10.0-NT",
+		"name": "Windows Server 2016",
+		"id": "74"
+	},
+	{
+		"code": "10.0-NT",
+		"name": "Windows Server 2019",
+		"id": "119"
+	},
+	{
+		"code": "10.0-NT",
+		"name": "Windows Server 2022",
+		"id": "134"
+	},
+	{
+		"code": "5.2",
+		"name": "Windows Server 2003",
+		"id": "15"
+	},
+	{
+		"code": "5.2",
+		"name": "Windows Server 2003 x64",
+		"id": "8"
+	},
+	{
+		"code": "vmware-5.1",
+		"name": "VMware vSphere ESXi 5.1",
+		"id": "34"
+	},
+	{
+		"code": "vmware-5.5",
+		"name": "VMware vSphere ESXi 5.5",
+		"id": "43"
+	},
+	{
+		"code": "vmware-6.0",
+		"name": "VMware vSphere ESXi 6.0",
+		"id": "54"
+	},
+	{
+		"code": "vmware-6.5",
+		"name": "VMware vSphere ESXi 6.5",
+		"id": "78"
+	},
+	{
+		"code": "XenServer-6.2",
+		"name": "Citrix XenServer 6.2",
+		"id": "48"
+	},
+	{
+		"code": "Citrix XenServer 6.5",
+		"name": "Citrix XenServer 6.5",
+		"id": "49"
+	},
+	{
+		"code": "Citrix XenServer 7.0",
+		"name": "Citrix XenServer 7.0",
+		"id": "67"
+	},
+	{
+		"code": "Citrix XenServer 7.1",
+		"name": "Citrix XenServer 7.1",
+		"id": "83"
+	},
+	{
+		"code": "5.0",
+		"name": "Windows 2000",
+		"id": "5"
+	},
+	{
+		"code": "4.9",
+		"name": "Windows ME",
+		"id": "4"
+	},
+	{
+		"code": "4.1",
+		"name": "Windows 98",
+		"id": "3"
+	},
+	{
+		"code": "4.0",
+		"name": "Windows NT4",
+		"id": "2"
+	},
+	{
+		"code": "4.0",
+		"name": "Windows 95",
+		"id": "1"
+	},
+	{
+		"code": "linux32",
+		"name": "Linux 32-bit",
+		"id": "11"
+	},
+	{
+		"code": "linux32ARM",
+		"name": "Linux 32-bit ARM",
+		"id": "39"
+	},
+	{
+		"code": "Linux aarch64",
+		"name": "Linux aarch64",
+		"id": "124"
+	},
+	{
+		"code": "linux64",
+		"name": "Linux 64-bit",
+		"id": "12"
+	},
+	{
+		"code": "sunos",
+		"name": "Solaris x86/x64",
+		"id": "13"
+	},
+	{
+		"code": "freebsd",
+		"name": "FreeBSD x86",
+		"id": "14"
+	},
+	{
+		"code": "freebsd",
+		"name": "FreeBSD x64",
+		"id": "22"
+	},
+	{
+		"code": "MacOSX10.5",
+		"name": "macOS Leopard 10.5.7",
+		"id": "20"
+	},
+	{
+		"code": "MacOSX10.7",
+		"name": "Mac OS X SnowLeopard 10.6.8",
+		"id": "23"
+	},
+	{
+		"code": "MacOSX10.7",
+		"name": "Mac OS X Lion 10.7.5",
+		"id": "33"
+	},
+	{
+		"code": "Mac OSX10.8",
+		"name": "macOS Mountain Lion 10.8.5",
+		"id": "42"
+	},
+	{
+		"code": "Mac OS X10.9.5",
+		"name": "macOS Mavericks 10.9.5",
+		"id": "50"
+	},
+	{
+		"code": "Mac OS X10.10.5",
+		"name": "macOS Yosemite 10.10.5",
+		"id": "61"
+	},
+	{
+		"code": "Mac OS X10.11.6",
+		"name": "macOS El Capitan 10.11.6",
+		"id": "71"
+	},
+	{
+		"code": "Mac OS X10.12.6",
+		"name": "macOS Sierra 10.12.6",
+		"id": "95"
+	},
+	{
+		"code": "Mac OS X10.13.6",
+		"name": "macOS High Sierra 10.13.6",
+		"id": "110"
+	},
+	{
+		"code": "Linux-ppc64le",
+		"name": "Linux 64-bit POWER LE",
+		"id": "121"
+	},
+	{
+		"code": "linux-RHEL-6",
+		"name": "Linux 64-bit RHEL6",
+		"id": "91"
+	},
+	{
+		"code": "linux-RHEL-7",
+		"name": "Linux 64-bit RHEL7",
+		"id": "90"
+	},
+	{
+		"code": "linux-RHEL-8",
+		"name": "Linux 64-bit RHEL8",
+		"id": "123"
+	},
+	{
+		"code": "linux-aarch64-RHEL-8",
+		"name": "Linux aarch64-bit RHEL8",
+		"id": "125"
+	},
+	{
+		"code": "Power-RHEL8",
+		"name": "Linux POWER RHEL 8",
+		"id": "126"
+	},
+	{
+		"code": "Power9-RHEL7",
+		"name": "Linux POWER RHEL 7",
+		"id": "103"
+	},
+	{
+		"code": "Power8-RHEL",
+		"name": "Linux POWER LE RHEL 7",
+		"id": "77"
+	},
+	{
+		"code": "linux-arm64bit-ubuntu-20.04",
+		"name": "Linux ARM 64-bit Ubuntu 20.04",
+		"id": "131"
+	},
+	{
+		"code": "linux-arm64bit-ubuntu-18.04",
+		"name": "Linux ARM 64-bit Ubuntu 18.04",
+		"id": "127"
+	},
+	{
+		"code": "linux-64bit-ubuntu-14.04",
+		"name": "Linux 64-bit Ubuntu 14.04",
+		"id": "93"
+	},
+	{
+		"code": "linux-ubuntu-x86-16.04",
+		"name": "Linux 64-bit Ubuntu 16.04",
+		"id": "92"
+	},
+	{
+		"code": "Ubuntu-17.04",
+		"name": "Linux 64-bit Ubuntu 17.04",
+		"id": "102"
+	},
+	{
+		"code": "Ubuntu-17.10",
+		"name": "Linux 64-bit Ubuntu 17.10",
+		"id": "111"
+	},
+	{
+		"code": "Ubuntu-18.04",
+		"name": "Linux 64-bit Ubuntu 18.04",
+		"id": "113"
+	},
+	{
+		"code": "Ubuntu-18.10",
+		"name": "Linux 64-bit Ubuntu 18.10",
+		"id": "118"
+	},
+	{
+		"code": "Ubuntu-20.04",
+		"name": "Linux 64-bit Ubuntu 20.04",
+		"id": "129"
+	},
+	{
+		"code": "POWER9-Ubuntu-16.04",
+		"name": "Linux POWER Ubuntu 16.04",
+		"id": "104"
+	},
+	{
+		"code": "Power8",
+		"name": "Linux POWER LE Ubuntu 16.04",
+		"id": "65"
+	},
+	{
+		"code": "Ubuntu-Power-18.04",
+		"name": "Linux POWER LE Ubuntu 18.04",
+		"id": "114"
+	},
+	{
+		"code": "Ubuntu-Power-18.10",
+		"name": "Linux POWER LE Ubuntu 18.10",
+		"id": "120"
+	},
+	{
+		"code": "linux-fedora23",
+		"name": "Linux 64-bit Fedora 23",
+		"id": "85"
+	},
+	{
+		"code": "linux-fedora25",
+		"name": "Linux 64-bit Fedora 25",
+		"id": "97"
+	},
+	{
+		"code": "linux-fedora27",
+		"name": "Linux 64-bit Fedora 27",
+		"id": "108"
+	},
+	{
+		"code": "linux-fedora29",
+		"name": "Linux 64-bit Fedora 29",
+		"id": "116"
+	},
+	{
+		"code": "linux-fedora33",
+		"name": "Linux 64-bit Fedora 33",
+		"id": "133"
+	},
+	{
+		"code": "linux-debian10",
+		"name": "Linux 64-bit Debian 10",
+		"id": "132"
+	},
+	{
+		"code": "linux-sles-12",
+		"name": "Linux 64-bit SLES 12 SP2",
+		"id": "87"
+	},
+	{
+		"code": "linux-sles-123",
+		"name": "Linux 64-bit SLES 12 SP3",
+		"id": "106"
+	},
+	{
+		"code": "linux-sles-124sp4",
+		"name": "Linux 64-bit SLES 12 SP4",
+		"id": "122"
+	},
+	{
+		"code": "linux-sles-124",
+		"name": "Linux 64-bit SLES 12",
+		"id": "117"
+	},
+	{
+		"code": "linux-sles-15",
+		"name": "Linux 64-bit SLES 15",
+		"id": "112"
+	},
+	{
+		"code": "linux-aarch64-sles15",
+		"name": "Linux aarch64-bit SLES 15",
+		"id": "128"
+	},
+	{
+		"code": "linux-openSUSE-13.2",
+		"name": "Linux 64-bit Opensuse 13.2",
+		"id": "86"
+	},
+	{
+		"code": "linux-openSUSE-15.0",
+		"name": "Linux 64-bit Opensuse 15",
+		"id": "115"
+	},
+	{
+		"code": "linux-openSUSE-42.3",
+		"name": "Linux 64-bit Opensuse 42.3",
+		"id": "101"
+	},
+	{
+		"code": "linux-openSUSE-42.2",
+		"name": "Linux 64-bit Opensuse 42.2",
+		"id": "96"
+	}
+]
