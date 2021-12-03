@@ -523,8 +523,8 @@
 		"GeForce RTX 3070": "933",
 		"GeForce RTX 3060 Ti": "934",
 		"GeForce RTX 3060": "942",
-		"RTX A2000": "967",
-		"T4G": "968"
+		"RTX A4500": "969",
+		"RTX A2000": "967"
 	},
 	"notebook": {
 		"NVS 5400M": "642",
