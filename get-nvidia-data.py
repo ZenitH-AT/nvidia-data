@@ -1,7 +1,5 @@
 import os, sys, requests, xmltodict, re, json
 
-os.chdir(sys.path[0])
-
 ## Regular expression variables and functions
 CARD_VARIANT_REGEX = re.compile(r".*(?= [0-9]+GB)|.*(?= \([A-Z]+\))|.*")
 NOTEBOOK_SERIES_REGEX = re.compile(r".*((Notebooks)|Quadro Blade).*")
@@ -29,29 +27,35 @@ def write_json(data, file_name):
 	with open(file_name, "w+") as outfile:
 		outfile.write(json_object)
 
-## Parse GPUs
-series_lookup_values = get_lookup_values(2)
+def main():
+	os.chdir(sys.path[0])
 
-# Account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti)
-notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
+	## Parse GPUs
+	series_lookup_values = get_lookup_values(2)
 
-gpu_lookup_values = get_lookup_values(3)
+	# Account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti)
+	notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
 
-gpu_dict = {"desktop": {}, "notebook": {}}
+	gpu_lookup_values = get_lookup_values(3)
 
-for gpu_lookup_value in gpu_lookup_values:
-	gpu_pair = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"]}
+	gpu_dict = {"desktop": {}, "notebook": {}}
 
-	if gpu_lookup_value["@ParentID"] in notebook_series_values:
-		gpu_dict["notebook"].update(gpu_pair)
-	else:
-		gpu_dict["desktop"].update(gpu_pair)
+	for gpu_lookup_value in gpu_lookup_values:
+		gpu_pair = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"]}
 
-write_json(gpu_dict, "gpu-data.json")
+		if gpu_lookup_value["@ParentID"] in notebook_series_values:
+			gpu_dict["notebook"].update(gpu_pair)
+		else:
+			gpu_dict["desktop"].update(gpu_pair)
 
-## Parse OSes
-os_lookup_values = get_lookup_values(4)
+	write_json(gpu_dict, "gpu-data.json")
 
-os_arr = [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in os_lookup_values]
+	## Parse OSes
+	os_lookup_values = get_lookup_values(4)
 
-write_json(os_arr, "os-data.json")
+	os_arr = [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in os_lookup_values]
+
+	write_json(os_arr, "os-data.json")
+
+if __name__ == "__main__":
+	main()
