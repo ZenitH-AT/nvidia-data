@@ -266,22 +266,22 @@
 	},
 	{
 		"code": "linux-RHEL-6",
-		"name": "Linux 64-bit RHEL6",
+		"name": "Linux 64-bit RHEL 6",
 		"id": "91"
 	},
 	{
 		"code": "linux-RHEL-7",
-		"name": "Linux 64-bit RHEL7",
+		"name": "Linux 64-bit RHEL 7",
 		"id": "90"
 	},
 	{
 		"code": "linux-RHEL-8",
-		"name": "Linux 64-bit RHEL8",
+		"name": "Linux 64-bit RHEL 8",
 		"id": "123"
 	},
 	{
 		"code": "linux-aarch64-RHEL-8",
-		"name": "Linux aarch64-bit RHEL8",
+		"name": "Linux aarch64-bit RHEL 8",
 		"id": "125"
 	},
 	{
