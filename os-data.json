@@ -280,9 +280,19 @@
 		"id": "123"
 	},
 	{
+		"code": "linux-RHEL-9",
+		"name": "Linux 64-bit RHEL 9",
+		"id": "138"
+	},
+	{
 		"code": "linux-aarch64-RHEL-8",
 		"name": "Linux aarch64-bit RHEL 8",
 		"id": "125"
+	},
+	{
+		"code": "linux-aarch64-RHEL-9",
+		"name": "Linux aarch64-bit RHEL 9",
+		"id": "139"
 	},
 	{
 		"code": "Power-RHEL8",
@@ -298,6 +308,11 @@
 		"code": "Power8-RHEL",
 		"name": "Linux POWER LE RHEL 7",
 		"id": "77"
+	},
+	{
+		"code": "linux-arm64bit-ubuntu-22.04",
+		"name": "Linux ARM 64-bit Ubuntu 22.04",
+		"id": "140"
 	},
 	{
 		"code": "linux-arm64bit-ubuntu-20.04",
@@ -345,6 +360,11 @@
 		"id": "129"
 	},
 	{
+		"code": "Ubuntu-22.04",
+		"name": "Linux 64-bit Ubuntu 22.04",
+		"id": "141"
+	},
+	{
 		"code": "POWER9-Ubuntu-16.04",
 		"name": "Linux POWER Ubuntu 16.04",
 		"id": "104"
@@ -388,6 +408,16 @@
 		"code": "linux-fedora33",
 		"name": "Linux 64-bit Fedora 33",
 		"id": "133"
+	},
+	{
+		"code": "linux-fedora35",
+		"name": "Linux 64-bit Fedora 35",
+		"id": "136"
+	},
+	{
+		"code": "linux-debian11",
+		"name": "Linux 64-bit Debian 11",
+		"id": "137"
 	},
 	{
 		"code": "linux-debian10",
