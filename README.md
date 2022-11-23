@@ -59,7 +59,7 @@ Q. What are the JSON files used for?
 >	]
 > ```
 >
-> Additionally, since GPU data keys must match exactly with the computer's GPU name, all GPU names are run through a ```clean_gpu_name()``` function:
+> Additionally, since GPU data keys must match exactly with the computer's GPU name (without the "NVIDIA " prefix), all GPU names are run through a ```clean_gpu_name()``` function:
 >
 > Old name | New name
 > --- | ---
@@ -68,7 +68,8 @@ Q. What are the JSON files used for?
 > Quadro M6000 24GB | Quadro M6000
 > GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
 > NVIDIA TITAN RTX | TITAN RTX
+> GeForce GTX 1660 SUPER | GeForce GTX 1660 Super
 
-## Planned changes
+## Possible future changes
 
 - The script should be updated to account for not all alternative names being repeated in other entries (e.g. nForce 630i is not retrieved by this script).

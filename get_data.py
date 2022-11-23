@@ -10,10 +10,10 @@ def get_lookup_values(type_id):
 
 	return lookup_values
 
-def clean_gpu_name(gpu_name):
-	# Limit to first name if multiple names specified; most alternative names are repeated in other entries
+def clean_gpu_name(gpu_name: str):
+    # Remove NVIDIA, replace SUPER with Super and use first name if composite (as most alternative names are repeated in other entries)
 	# (e.g. "GeForce 7050 / NVIDIA nForce 610i" is repeated as "nForce 610i/GeForce 7050")
-	gpu_name = str(gpu_name).replace("NVIDIA", "").split("/")[0].strip()
+	gpu_name = gpu_name.replace("NVIDIA", "").replace("SUPER", "Super").split("/")[0].strip()
 
 	# Handle card variants (e.g. 1060 6GB, 760Ti (OEM))
 	gpu_name = CARD_VARIANT_REGEX.match(gpu_name)[0]
