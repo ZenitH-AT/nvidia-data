@@ -1,6 +1,5 @@
-import os, sys, requests, xmltodict, re, json
+import requests, xmltodict, re
 
-## Regular expression variables and functions
 CARD_VARIANT_REGEX = re.compile(r".*(?= [0-9]+GB)|.*(?= \([A-Z]+\))|.*")
 NOTEBOOK_SERIES_REGEX = re.compile(r".*((Notebooks)|Quadro Blade).*")
 
@@ -21,41 +20,34 @@ def clean_gpu_name(gpu_name):
 
 	return gpu_name
 
-def write_json(data, file_name):
-	json_object = json.dumps(data, indent="\t")
-
-	with open(file_name, "w+") as outfile:
-		outfile.write(json_object)
-
-def main():
-	os.chdir(sys.path[0])
-
-	## Parse GPUs
-	series_lookup_values = get_lookup_values(2)
+def get_gpu_data():
+	gpu_data = {"desktop": {}, "notebook": {}}
 
 	# Account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti)
-	notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in series_lookup_values if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
+	notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in get_lookup_values(2) if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
 
-	gpu_lookup_values = get_lookup_values(3)
-
-	gpu_dict = {"desktop": {}, "notebook": {}}
-
-	for gpu_lookup_value in gpu_lookup_values:
+	for gpu_lookup_value in get_lookup_values(3):
 		gpu_pair = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"]}
 
 		if gpu_lookup_value["@ParentID"] in notebook_series_values:
-			gpu_dict["notebook"].update(gpu_pair)
+			gpu_data["notebook"].update(gpu_pair)
 		else:
-			gpu_dict["desktop"].update(gpu_pair)
+			gpu_data["desktop"].update(gpu_pair)
 
-	write_json(gpu_dict, "gpu-data.json")
+	return gpu_data
 
-	## Parse OSes
-	os_lookup_values = get_lookup_values(4)
-
-	os_arr = [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in os_lookup_values]
-
-	write_json(os_arr, "os-data.json")
+def get_os_data() -> list[dict]:
+	return [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in get_lookup_values(4)]
 
 if __name__ == "__main__":
-	main()
+	# Write data to files
+	import json
+
+	def write_json(data, file_name):
+		json_object = json.dumps(data, indent="\t")
+
+		with open(file_name, "w+") as outfile:
+			outfile.write(json_object)
+
+	write_json(get_gpu_data(), "gpu-data.json")
+	write_json(get_os_data(), "os-data.json")
