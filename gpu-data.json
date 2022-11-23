@@ -536,7 +536,8 @@
 		"RTX A4000H": "980",
 		"RTX A2000": "967",
 		"H100 PCIe": "994",
-		"GeForce RTX 4090": "995"
+		"GeForce RTX 4090": "995",
+		"GeForce RTX 4080": "999"
 	},
 	"notebook": {
 		"NVS 5400M": "642",
@@ -808,6 +809,7 @@
 		"RTX A2000": "989",
 		"RTX A2000 Laptop GPU": "957",
 		"RTX A1000 Laptop GPU": "981",
+		"RTX A500 Laptop GPU": "998",
 		"T1200 Laptop GPU": "960",
 		"T600 Laptop GPU": "961",
 		"T550 Laptop GPU": "986",
