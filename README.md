@@ -59,7 +59,7 @@ Q. What are the JSON files used for?
 >	]
 > ```
 >
-> Additionally, since GPU data keys must match exactly with the computer's GPU name (without the "NVIDIA " prefix, " with Max-Q Design" suffix, etc.), all GPU names are run through a ```clean_gpu_name()``` function:
+> Additionally, since GPU data keys must match the GPU name reported by the computer (without the "NVIDIA " prefix, " with Max-Q Design" suffix, etc.), all GPU names are run through a ```clean_gpu_name()``` function:
 >
 > Old name | New name
 > --- | ---
