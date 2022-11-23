@@ -27,12 +27,7 @@ def get_gpu_data():
 	notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in get_lookup_values(2) if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
 
 	for gpu_lookup_value in get_lookup_values(3):
-		gpu_pair = {clean_gpu_name(gpu_lookup_value["Name"]): gpu_lookup_value["Value"]}
-
-		if gpu_lookup_value["@ParentID"] in notebook_series_values:
-			gpu_data["notebook"].update(gpu_pair)
-		else:
-			gpu_data["desktop"].update(gpu_pair)
+		gpu_data["notebook" if gpu_lookup_value["@ParentID"] in notebook_series_values else "desktop"][clean_gpu_name(gpu_lookup_value["Name"])] = gpu_lookup_value["Value"]
 
 	return gpu_data
 
