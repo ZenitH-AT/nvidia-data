@@ -1,7 +1,7 @@
 import requests, xmltodict, re
 
 CARD_VARIANT_REGEX = re.compile(r".*(?= [0-9]+GB)|.*(?= \([A-Z]+\))|.*")
-NOTEBOOK_SERIES_REGEX = re.compile(r".*((Notebook|Quadro Blade).*")
+NOTEBOOK_SERIES_REGEX = re.compile(r".*(\(Notebook|Quadro Blade).*")
 
 def get_lookup_values(type_id):
 	xml = requests.get(f"https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID={type_id}").content
