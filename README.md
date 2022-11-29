@@ -46,6 +46,7 @@ OS data example (OS code, OS name and `osID`):
     GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
     NVIDIA TITAN RTX | TITAN RTX
     
+    - SUPER variant GPU names reported by the OS may need to be filtered in code using this data, as some cards use "SUPER" while others use "Super"
     - Please open issues with any discrepancies you find
 
 ## Running the script
