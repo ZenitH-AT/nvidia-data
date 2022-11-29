@@ -2,7 +2,7 @@
 
 The latest product family (GPU) and operating system data from the NVIDIA Download API ([lookupValueSearch](https://www.nvidia.com/Download/API/lookupValueSearch.aspx)) as JSON files.
 
-## What does this script do?
+## What does the script do?
 
 ```get_data.py``` reads XML data from the NVIDIA Download API and converts it to a form that can be read from more easily (key value pairs) when comparing to corresponding data from an OS.
 
@@ -62,12 +62,12 @@ python get_data.py
 
 ## Where are the JSON files used?
 
-The JSON files created by this script were initially primarily intended to be used by the ```nvidia-update.ps1``` script (available at [ZenitH-AT/nvidia-update](https://github.com/ZenitH-AT/nvidia-update)) but are now also used by other projects, such as [ElPumpo/TinyNvidiaUpdateChecker](https://github.com/ElPumpo/TinyNvidiaUpdateChecker).
+The JSON files created by ```get_data.py``` were initially primarily intended to be used by the ```nvidia-update.ps1``` script (available at [ZenitH-AT/nvidia-update](https://github.com/ZenitH-AT/nvidia-update)) but are now also used by other projects, such as [ElPumpo/TinyNvidiaUpdateChecker](https://github.com/ElPumpo/TinyNvidiaUpdateChecker).
 
-Previously, the ```nvidia-update.ps1``` script needed to query the NVIDIA Download API multiple times, iterating through and filtering every bit of data. Measures to speed up this process (i.e. limiting queries to desktop/mobile GPU and GeForce cards only) mostly just made the code more complicated.
+Previously, ```nvidia-update.ps1``` needed to query the NVIDIA Download API multiple times, iterating through and filtering every bit of data. Measures to speed up this process (i.e. limiting queries to desktop/mobile GPU and GeForce cards only) mostly just made the code more complicated.
 
 Now, the script passes the data taken directly from this repository to the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php). An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
 
 ## Possible future changes
 
-- The script should be updated to account for not all alternative names being repeated in other entries (e.g. nForce 630i is not retrieved by this script).
+- The script should be updated to account for not all alternative names being repeated in other entries (e.g. nForce 630i is not retrieved by ```get_data.py```).
