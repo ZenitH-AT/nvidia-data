@@ -45,7 +45,6 @@ OS data example (OS code, OS name and `osID`):
     Quadro M6000 24GB | Quadro M6000
     GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
     NVIDIA TITAN RTX | TITAN RTX
-    GeForce GTX 1660 SUPER | GeForce GTX 1660 Super
     
     - Please open issues with any discrepancies you find
 
