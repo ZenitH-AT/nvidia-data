@@ -1,13 +1,53 @@
 # nvidia-data
 
-Writes the latest product family (GPU) and operating system data from the NVIDIA Download API ([lookupValueSearch](https://www.nvidia.com/Download/API/lookupValueSearch.aspx)) to JSON files.
+The latest product family (GPU) and operating system data from the NVIDIA Download API ([lookupValueSearch](https://www.nvidia.com/Download/API/lookupValueSearch.aspx)) as JSON files.
+
+## What does this script do?
+
+```get_data.py``` reads XML data from the NVIDIA Download API and converts it to a form that can be read from more easily (key value pairs) when comparing to corresponding data from an OS.
+
+![Data mapping](https://i.ibb.co/q9295fg/data-mapping.png "Data mapping")
+
+Desktop and notebook GPUs are separated to account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti); some notebook GPUs may still be in the desktop key (e.g. T1000, ) because NVIDIA listed them under a desktop series, both a desktop and notebook series or none at all. OS data is structured more traditionally, since both the code and part of the name must be compared.
+
+GPU data example (GPU name and `pfid`):
+
+```json
+{
+    "GeForce RTX 3070": "933",
+}
+```
+
+OS data example (OS code, OS name and `osID`):
+
+```json
+[
+    {
+        "code": "10.0",
+        "name": "Windows 10 64-bit",
+        "id": "57"
+    },
+]
+```
 
 ## Notes
 
-- Product family (GPU) data ([gpu-data.json](https://raw.githubusercontent.com/ZenitH-AT/nvidia-data/main/gpu-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3``` change.
-	- Updates to this file will always occur before any new GPUs are released.
-- Operating system data ([os-data.json](https://raw.githubusercontent.com/ZenitH-AT/nvidia-data/main/os-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4``` change.
-- Almost all NVIDIA products are GPUs. Product family is referred to as GPU for simplicity.
+- Product family (GPU) data ([gpu-data.json](https://raw.githubusercontent.com/ZenitH-AT/nvidia-data/main/gpu-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=3``` change
+	- Updates to this file will always occur before any new GPUs are released
+- Operating system data ([os-data.json](https://raw.githubusercontent.com/ZenitH-AT/nvidia-data/main/os-data.json)) is updated whenever the results of ```https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID=4``` change
+- Since almost all NVIDIA products are GPUs, product family is referred to as GPU throughout this repository
+- GPU data keys are run through a ```clean_gpu_name()``` function to aim to match the GPU name reported by the OS (without the "NVIDIA " prefix, " with Max-Q Design" suffix, etc.):
+
+    Old name | New name
+    --- | ---
+    GeForce 7050 / NVIDIA nForce 610i | GeForce 7050
+    nForce 610i/GeForce 7050     | nForce 610i
+    Quadro M6000 24GB | Quadro M6000
+    GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
+    NVIDIA TITAN RTX | TITAN RTX
+    GeForce GTX 1660 SUPER | GeForce GTX 1660 Super
+    
+    - Please open issues with any discrepancies you find
 
 ## Running the script
 
@@ -20,55 +60,13 @@ pip install -r requirements.txt
 python get_data.py
 ```
 
-## FAQ
+## Where are the JSON files used?
 
-Q. What exactly does this script do?
+The JSON files created by this script were initially primarily intended to be used by the ```nvidia-update.ps1``` script (available at [ZenitH-AT/nvidia-update](https://github.com/ZenitH-AT/nvidia-update)) but are now also used by other projects, such as [ElPumpo/TinyNvidiaUpdateChecker](https://github.com/ElPumpo/TinyNvidiaUpdateChecker).
 
-> This script effectively converts the XML data from the NVIDIA Download API and converts it into a form that can be read very quickly.
->
-> ![Data mapping](https://i.ibb.co/q9295fg/data-mapping.png "Data mapping")
+Previously, the ```nvidia-update.ps1``` script needed to query the NVIDIA Download API multiple times, iterating through and filtering every bit of data. Measures to speed up this process (i.e. limiting queries to desktop/mobile GPU and GeForce cards only) mostly just made the code more complicated.
 
-Q. What are the JSON files used for?
-
-> The JSON files created by this script are intended to be used by the nvidia-update.ps1 script (available at [ZenitH-AT/nvidia-update](https://github.com/ZenitH-AT/nvidia-update)).
->
-> Previously, the script needed to query the NVIDIA Download API multiple times, iterating through and filtering every bit of data. Measures to speed up this process (i.e. limiting queries to desktop/mobile GPU and GeForce cards only) mostly just made the code more complicated.
->
-> The nvidia-update.ps1 script passes the data to the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php). An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
->
-> GPU data created by the get_data.py script is structured in key value pairs for performance. Desktop and notebook GPUs are separated to account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti); some notebook GPUs may still be in the desktop key (e.g. T1000, ) because NVIDIA listed them under a desktop series, both a desktop and notebook series or none at all. OS data is structured more traditionally, since both the code and part of the name must be compared.
->
-> - GPU data:
->	- GPU name and `pfid`
->
-> ```json
-> 	{
->		"GeForce RTX 3070": "933",
->	}
-> ```
-> - OS data:
->	- OS code, OS name and `osID`
->
-> ```json
-> 	[
->		{
->			"code": "10.0",
->			"name": "Windows 10 64-bit",
->			"id": "57"
->		},
->	]
-> ```
->
-> Additionally, since GPU data keys must match the GPU name reported by the OS (without the "NVIDIA " prefix, " with Max-Q Design" suffix, etc.), all GPU names are run through a ```clean_gpu_name()``` function:
->
-> Old name | New name
-> --- | ---
-> GeForce 7050 / NVIDIA nForce 610i | GeForce 7050
-> nForce 610i/GeForce 7050 | nForce 610i
-> Quadro M6000 24GB | Quadro M6000
-> GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
-> NVIDIA TITAN RTX | TITAN RTX
-> GeForce GTX 1660 SUPER | GeForce GTX 1660 Super
+Now, the script passes the data taken directly from this repository to the NVIDIA [AjaxDriverService](https://gfwsl.geforce.com/services_toolkit/services/com/nvidia/services/AjaxDriverService.php). An example of how this data is used can be found [here](https://github.com/ZenitH-AT/nvidia-update#faq).
 
 ## Possible future changes
 
