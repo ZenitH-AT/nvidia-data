@@ -215,6 +215,11 @@
 		"id": "22"
 	},
 	{
+		"code": "linux-kylinOS10",
+		"name": "Linux 64-bit KylinOS 10",
+		"id": "143"
+	},
+	{
 		"code": "MacOSX10.5",
 		"name": "macOS Leopard 10.5.7",
 		"id": "20"
@@ -413,6 +418,11 @@
 		"code": "linux-fedora35",
 		"name": "Linux 64-bit Fedora 35",
 		"id": "136"
+	},
+	{
+		"code": "linux-fedora36",
+		"name": "Linux 64-bit Fedora 36",
+		"id": "142"
 	},
 	{
 		"code": "linux-debian11",
