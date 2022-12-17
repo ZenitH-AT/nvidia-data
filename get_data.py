@@ -11,11 +11,11 @@ def get_lookup_values(type_id):
 	return lookup_values
 
 def clean_gpu_name(gpu_name: str):
-    # Remove NVIDIA and use first name if composite (as most alternative names are repeated in other entries)
-	# (e.g. "GeForce 7050 / NVIDIA nForce 610i" is repeated as "nForce 610i/GeForce 7050")
+	# Remove NVIDIA and use first name if composite (as most alternative names are repeated in other entries)
+	# (e.g., "GeForce 7050 / NVIDIA nForce 610i" is repeated as "nForce 610i/GeForce 7050")
 	gpu_name = gpu_name.replace("NVIDIA", "").split("/")[0].strip()
 
-	# Handle card variants (e.g. 1060 6GB, 760Ti (OEM))
+	# Handle card variants (e.g., 1060 6GB, 760Ti (OEM))
 	gpu_name = CARD_VARIANT_REGEX.match(gpu_name)[0]
 
 	return gpu_name
@@ -23,7 +23,7 @@ def clean_gpu_name(gpu_name: str):
 def get_gpu_data():
 	gpu_data = {"desktop": {}, "notebook": {}}
 
-	# Account for some GPUs being present in both a desktop and notebook series (e.g. GeForce GTX 1050 Ti)
+	# Account for some GPUs being present in both a desktop and notebook series (e.g., GeForce GTX 1050 Ti)
 	notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in get_lookup_values(2) if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
 
 	for gpu_lookup_value in get_lookup_values(3):
