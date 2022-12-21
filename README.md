@@ -51,7 +51,7 @@ OS data example (OS code, OS name and `osID`):
 		- Unnecessary parts of the name must be removed; e.g., by using a regex like this:
 
 			```
-			(?<=NVIDIA )(.*(?= \([A-Z]+\))|.*(?= [0-9]+GB)|.*(?= with Max-Q Design)|.*(?= COLLECTORS EDITION)|.*)
+			(?<=NVIDIA )(.*(?= \([A-Z]+\))|.*(?= [0-9]+GB)|.*(?= COLLECTORS EDITION)|.*(?= with Max-Q Design)|.*)
 			```
 	- Please open issues with any discrepancies you find
 
