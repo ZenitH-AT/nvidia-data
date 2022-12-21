@@ -46,14 +46,14 @@ OS data example (OS code, OS name and `osID`):
 	GeForce GTX 760 Ti (OEM) | GeForce GTX 760 Ti
 	NVIDIA TITAN RTX | TITAN RTX
 
-	- SUPER variant GPU names reported by the OS may need to be filtered in code using this data, as some cards use "SUPER" while others use "Super"
+	- Some variant GPU names reported by the OS may not match any keys in `gpu-data.json`, so must be filtered in code using this data:
+		- "Super" must be replaced with "SUPER"
+		- Unnecessary parts of the name must be removed; e.g., by using a regex like this:
+
+			```
+			(?<=NVIDIA )(.*(?= \([A-Z]+\))|.*(?= [0-9]+GB)|.*(?= with Max-Q Design)|.*(?= COLLECTORS EDITION)|.*)
+			```
 	- Please open issues with any discrepancies you find
-
-- Some GPU variant names reported by the OS may not match any keys `gpu-data.json`, so should be matched against a regex (implementation side) like the one below to cut out unnecessary characters:
-
-	```
-	(?<=NVIDIA )(.*(?= \([A-Z]+\))|.*(?= [0-9]+GB)|.*(?= with Max-Q Design)|.*(?= COLLECTORS EDITION)|.*)
-	```
 
 ## Running the script
 
