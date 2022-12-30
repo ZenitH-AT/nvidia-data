@@ -1,9 +1,9 @@
 import requests, xmltodict, re
 
-CARD_VARIANT_REGEX = re.compile(r".*(?= [0-9]+GB)|.*(?= \([A-Z]+\))|.*")
+CARD_VARIANT_REGEX = re.compile(r".*(?= \([A-Z]+\))|.*(?= [0-9]+GB)|.*")
 NOTEBOOK_SERIES_REGEX = re.compile(r".*(\(Notebook|Quadro Blade).*")
 
-def get_lookup_values(type_id):
+def get_lookup_values(type_id: int):
 	xml = requests.get(f"https://www.nvidia.com/Download/API/lookupValueSearch.aspx?TypeID={type_id}").content
 
 	lookup_values = xmltodict.parse(xml)["LookupValueSearch"]["LookupValues"]["LookupValue"]
@@ -20,7 +20,7 @@ def clean_gpu_name(gpu_name: str):
 
 	return gpu_name
 
-def get_gpu_data():
+def get_gpu_data() -> dict:
 	gpu_data = {"desktop": {}, "notebook": {}}
 
 	# Account for some GPUs being present in both a desktop and notebook series (e.g., GeForce GTX 1050 Ti)
@@ -32,7 +32,7 @@ def get_gpu_data():
 	return gpu_data
 
 def get_os_data() -> list[dict]:
-	return [{"code": os_lookup_value["@Code"], "name": os_lookup_value["Name"], "id": os_lookup_value["Value"]} for os_lookup_value in get_lookup_values(4)]
+	return [{"id": os_lookup_value["Value"], "code": os_lookup_value["@Code"], "name": os_lookup_value["Name"]} for os_lookup_value in get_lookup_values(4)]
 
 if __name__ == "__main__":
 	# Write data to files

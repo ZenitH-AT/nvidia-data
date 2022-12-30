@@ -18,14 +18,14 @@ GPU data example (GPU name and `pfid`):
 }
 ```
 
-OS data example (OS code, OS name and `osID`):
+OS data example (`osID`, OS code and OS name):
 
 ```json
 [
 	{
+		"id": "57",
 		"code": "10.0",
-		"name": "Windows 10 64-bit",
-		"id": "57"
+		"name": "Windows 10 64-bit"
 	},
 ]
 ```
@@ -76,4 +76,4 @@ Now, the script passes the data taken directly from this repository to the NVIDI
 
 ## Possible future changes
 
-- The script should be updated to account for not all alternative names being repeated in other entries (e.g., nForce 630i is not retrieved by `get_data.py`).
+- `get_data.py` should be updated to account for not all alternative names being repeated in other entries (e.g., nForce 630i is not retrieved).
