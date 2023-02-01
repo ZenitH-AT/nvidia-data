@@ -180,6 +180,11 @@
 		"name": "Windows 95"
 	},
 	{
+		"id": "144",
+		"code": "cbl-mariner-linux-64bit",
+		"name": "CBL Mariner"
+	},
+	{
 		"id": "11",
 		"code": "linux32",
 		"name": "Linux 32-bit"
@@ -423,6 +428,11 @@
 		"id": "142",
 		"code": "linux-fedora36",
 		"name": "Linux 64-bit Fedora 36"
+	},
+	{
+		"id": "145",
+		"code": "linux-fedora37",
+		"name": "Linux 64-bit Fedora 37"
 	},
 	{
 		"id": "137",

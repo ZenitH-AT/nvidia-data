@@ -501,6 +501,7 @@
 		"GeForce GTX 1660": "895",
 		"GeForce GTX 1650": "897",
 		"GeForce GTX 1630": "993",
+		"HGX H100": "1002",
 		"HGX A800": "997",
 		"HGX A100": "922",
 		"HGX-2": "896",
@@ -536,7 +537,8 @@
 		"H100 PCIe": "994",
 		"GeForce RTX 4090": "995",
 		"GeForce RTX 4080": "999",
-		"GeForce RTX 4070 Ti": "1001"
+		"GeForce RTX 4070 Ti": "1001",
+		"L40": "1003"
 	},
 	"notebook": {
 		"NVS 5400M": "642",
