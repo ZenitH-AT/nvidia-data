@@ -538,6 +538,7 @@
 		"GeForce RTX 4090": "995",
 		"GeForce RTX 4080": "999",
 		"GeForce RTX 4070 Ti": "1001",
+		"L4": "1009",
 		"L40": "1003"
 	},
 	"notebook": {
