@@ -542,6 +542,7 @@
 		"GeForce RTX 4080": "999",
 		"GeForce RTX 4070 Ti": "1001",
 		"GeForce RTX 4070": "1015",
+		"GeForce RTX 4060 Ti": "1022",
 		"L4": "1009",
 		"L40": "1003",
 		"BlueField-2": "1010",
