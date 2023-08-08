@@ -546,8 +546,9 @@
 		"GeForce RTX 4060": "1023",
 		"L4": "1009",
 		"L40": "1003",
+		"BlueField-3": "1011",
 		"BlueField-2": "1010",
-		"BlueField-3": "1011"
+		"BlueField Drivers for Host": "1024"
 	},
 	"notebook": {
 		"NVS 5400M": "642",
