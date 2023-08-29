@@ -531,6 +531,8 @@
 		"GeForce RTX 3060": "942",
 		"GeForce RTX 3050": "975",
 		"RTX 6000 Ada Generation": "1000",
+		"RTX 5000 Ada Generation": "1025",
+		"RTX 4000 Ada Generation": "1026",
 		"RTX 4000 SFF Ada Generation": "1014",
 		"RTX A5500": "984",
 		"RTX A4500": "969",
