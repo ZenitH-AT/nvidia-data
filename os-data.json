@@ -435,6 +435,16 @@
 		"name": "Linux 64-bit Fedora 37"
 	},
 	{
+		"id": "146",
+		"code": "linux-fedora39",
+		"name": "Linux 64-bit Fedora 39"
+	},
+	{
+		"id": "147",
+		"code": "linux-debian12",
+		"name": "Linux 64-bit Debian 12"
+	},
+	{
 		"id": "137",
 		"code": "linux-debian11",
 		"name": "Linux 64-bit Debian 11"
