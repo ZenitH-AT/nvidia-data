@@ -22,14 +22,37 @@ def clean_gpu_name(gpu_name: str):
 
 def get_gpu_data() -> dict:
 	gpu_data = {"desktop": {}, "notebook": {}}
+	device_ids = get_deviceid_data()
 
 	# Account for some GPUs being present in both a desktop and notebook series (e.g., GeForce GTX 1050 Ti)
 	notebook_series_values = [series_lookup_value["Value"] for series_lookup_value in get_lookup_values(2) if NOTEBOOK_SERIES_REGEX.match(series_lookup_value["Name"])]
 
 	for gpu_lookup_value in get_lookup_values(3):
-		gpu_data["notebook" if gpu_lookup_value["@ParentID"] in notebook_series_values else "desktop"][clean_gpu_name(gpu_lookup_value["Name"])] = gpu_lookup_value["Value"]
+		gpu_name = clean_gpu_name(gpu_lookup_value["Name"])
+
+		if gpu_name in device_ids:
+			gpu_deviceid = device_ids[gpu_name]
+			gpu_data["notebook" if gpu_lookup_value["@ParentID"] in notebook_series_values else "desktop"][gpu_deviceid] = gpu_lookup_value["Value"]
+		#else:
+			#print(f"{gpu_name} device Id not found!")
 
 	return gpu_data
+
+def get_deviceid_data() -> dict:
+	deviceid_data = {}
+
+	with open('listDevices.txt', 'r') as file:
+		for line in file:
+			stripped_line = line.lstrip()
+
+			if stripped_line.startswith('DEV_'):
+				device_id = stripped_line[4:8]
+				first_quote_index = stripped_line.find('"')
+				name_raw = stripped_line[first_quote_index + 1:-2]
+				name_clean = clean_gpu_name(name_raw)
+
+				deviceid_data[name_clean] = device_id
+	return deviceid_data
 
 def get_os_data() -> list[dict]:
 	return [{"id": os_lookup_value["Value"], "code": os_lookup_value["@Code"], "name": os_lookup_value["Name"]} for os_lookup_value in get_lookup_values(4)]
@@ -45,4 +68,5 @@ if __name__ == "__main__":
 			outfile.write(json_object)
 
 	write_json(get_gpu_data(), "gpu-data.json")
-	write_json(get_os_data(), "os-data.json")
+	#write_json(get_os_data(), "os-data.json")
+	#write_json(get_deviceid_data(), "pf-data.json")

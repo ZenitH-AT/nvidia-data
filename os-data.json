@@ -320,6 +320,11 @@
 		"name": "Linux POWER LE RHEL 7"
 	},
 	{
+		"id": "148",
+		"code": "linux-arm64bit-ubuntu-24.04",
+		"name": "Linux ARM 64-bit Ubuntu 24.04"
+	},
+	{
 		"id": "140",
 		"code": "linux-arm64bit-ubuntu-22.04",
 		"name": "Linux ARM 64-bit Ubuntu 22.04"
@@ -373,6 +378,11 @@
 		"id": "141",
 		"code": "Ubuntu-22.04",
 		"name": "Linux 64-bit Ubuntu 22.04"
+	},
+	{
+		"id": "149",
+		"code": "Ubuntu-24.04",
+		"name": "Linux 64-bit Ubuntu 24.04"
 	},
 	{
 		"id": "104",
