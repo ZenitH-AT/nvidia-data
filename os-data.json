@@ -180,9 +180,14 @@
 		"name": "Windows 95"
 	},
 	{
+		"id": "150",
+		"code": "amazon-linux-64bit",
+		"name": "Amazon Linux 2023"
+	},
+	{
 		"id": "144",
-		"code": "cbl-mariner-linux-64bit",
-		"name": "CBL Mariner"
+		"code": "cbl-mariner-azure-linux-64bit",
+		"name": "Azure Linux"
 	},
 	{
 		"id": "11",
@@ -218,6 +223,11 @@
 		"id": "22",
 		"code": "freebsd",
 		"name": "FreeBSD x64"
+	},
+	{
+		"id": "151",
+		"code": "linux-aarch64-kylinOS10",
+		"name": "Linux aarch64-bit KylinOS 10"
 	},
 	{
 		"id": "143",
@@ -320,6 +330,11 @@
 		"name": "Linux POWER LE RHEL 7"
 	},
 	{
+		"id": "148",
+		"code": "linux-arm64bit-ubuntu-24.04",
+		"name": "Linux ARM 64-bit Ubuntu 24.04"
+	},
+	{
 		"id": "140",
 		"code": "linux-arm64bit-ubuntu-22.04",
 		"name": "Linux ARM 64-bit Ubuntu 22.04"
@@ -373,6 +388,11 @@
 		"id": "141",
 		"code": "Ubuntu-22.04",
 		"name": "Linux 64-bit Ubuntu 22.04"
+	},
+	{
+		"id": "149",
+		"code": "Ubuntu-24.04",
+		"name": "Linux 64-bit Ubuntu 24.04"
 	},
 	{
 		"id": "104",
