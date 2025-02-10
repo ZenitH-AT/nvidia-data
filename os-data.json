@@ -105,6 +105,11 @@
 		"name": "Windows Server 2022"
 	},
 	{
+		"id": "153",
+		"code": "10.0-NT",
+		"name": "Windows Server 2025"
+	},
+	{
 		"id": "15",
 		"code": "5.2",
 		"name": "Windows Server 2003"
@@ -458,6 +463,16 @@
 		"id": "146",
 		"code": "linux-fedora39",
 		"name": "Linux 64-bit Fedora 39"
+	},
+	{
+		"id": "152",
+		"code": "linux-fedora40",
+		"name": "Linux 64-bit Fedora 40"
+	},
+	{
+		"id": "154",
+		"code": "linux-fedora41",
+		"name": "Linux 64-bit Fedora 41"
 	},
 	{
 		"id": "147",
