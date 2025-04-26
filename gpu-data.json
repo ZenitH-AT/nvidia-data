@@ -580,6 +580,7 @@
 		"GeForce RTX 5080": "1065",
 		"GeForce RTX 5070 Ti": "1068",
 		"GeForce RTX 5070": "1070",
+		"GeForce RTX 5060 Ti": "1076",
 		"RTX PRO 6000 Blackwell Workstation": "1071",
 		"RTX PRO 6000 Blackwell Max-Q Workstation": "1072"
 	},
