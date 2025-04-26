@@ -501,6 +501,7 @@
 		"GeForce GTX 1660": "895",
 		"GeForce GTX 1650": "897",
 		"GeForce GTX 1630": "993",
+		"HGX GB200": "1069",
 		"HGX B200": "1064",
 		"H20-3e": "1063",
 		"H20": "1043",
@@ -576,7 +577,11 @@
 		"BlueField Drivers for Host": "1024",
 		"GeForce RTX 5090 D": "1067",
 		"GeForce RTX 5090": "1066",
-		"GeForce RTX 5080": "1065"
+		"GeForce RTX 5080": "1065",
+		"GeForce RTX 5070 Ti": "1068",
+		"GeForce RTX 5070": "1070",
+		"RTX PRO 6000 Blackwell Workstation": "1071",
+		"RTX PRO 6000 Blackwell Max-Q Workstation": "1072"
 	},
 	"notebook": {
 		"NVS 5400M": "642",
@@ -870,6 +875,9 @@
 		"GeForce RTX 4080 Laptop GPU": "1005",
 		"GeForce RTX 4070 Laptop GPU": "1006",
 		"GeForce RTX 4060 Laptop GPU": "1007",
-		"GeForce RTX 4050 Laptop GPU": "1008"
+		"GeForce RTX 4050 Laptop GPU": "1008",
+		"GeForce RTX 5090 Laptop GPU": "1073",
+		"GeForce RTX 5080 Laptop GPU": "1074",
+		"GeForce RTX 5070 Ti Laptop GPU": "1075"
 	}
 }
